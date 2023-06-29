@@ -9,8 +9,18 @@ jobs:
       - run: echo "step 2"
       - name: Check out repo code
         uses: actions/checkout@v3
-      - run: echo "some brackets stuff {{ github.repository }} should be our repo"
+      - run: echo "some brackets stuff ${{ github.repository }} should be our repo"
       - name: List our files
         run: |
           ls ${{ github.workspace }}
-      - run: echo "job status is {{ job.status }}"
+      - run: echo "job status is ${{ job.status }}"
+  New-AWS-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: chech what I have in S3 buckets
+        run: |
+          aws s3 ls
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}    
+          AWS_DEFAULT_REGION: 'eu-north-1'
