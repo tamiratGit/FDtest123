@@ -13,4 +13,4 @@ jobs:
       - name: List our files
         run: |
           ls ${{ github.workspace }}
-      - run: echo "job status is {{ job.status }}"
+      - run: echo "job status is {{ job.status }} edited"
