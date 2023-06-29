@@ -9,8 +9,8 @@ jobs:
       - run: echo "step 2"
       - name: Check out repo code
         uses: actions/checkout@v3
-      - run: echo "some brackets stuff {{ github.repository }} should be our repo"
+      - run: echo "some brackets stuff ${{ github.repository }} should be our repo"
       - name: List our files
         run: |
           ls ${{ github.workspace }}
-      - run: echo "job status is {{ job.status }}"
+      - run: echo "job status is ${{ job.status }}"
