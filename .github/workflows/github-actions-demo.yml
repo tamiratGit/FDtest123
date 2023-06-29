@@ -1,0 +1,16 @@
+name: Test GitHub actions
+run-name: ${{ github.actor }} is testing something
+on: [push]
+jobs:
+  Explore-Github-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "step 1"
+      - run: echo "step 2"
+      - name: Check out repo code
+        uses: actions/checkout@v3
+      - run: echo "some brackets stuff {{ github.repository }} should be our repo"
+      - name: List our files
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "job status is {{ job.status }}"
